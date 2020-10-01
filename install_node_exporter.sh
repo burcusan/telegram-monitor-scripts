@@ -6,7 +6,7 @@ sudo mv node_exporter-1.0.1.linux-amd64/node_exporter /usr/local/bin/
 sudo useradd -rs /bin/false node_exporter
 sudo vi /etc/systemd/system/node_exporter.service
 
-sudo bash -c 'cat << EOF > /etc/systemd/system/node_exporter.service
+cat <<EOF >/etc/systemd/system/node_exporter.service
 [Unit]
 Description=Node Exporter
 After=network.target
@@ -17,7 +17,7 @@ Type=simple
 ExecStart=/usr/local/bin/node_exporter
 [Install]
 WantedBy=multi-user.target
-EOF'
+EOF
 
 sudo systemctl daemon-reload
 sudo systemctl start node_exporter

@@ -6,7 +6,7 @@ sudo mv node_exporter-1.0.1.linux-amd64/node_exporter /usr/local/bin/
 sudo useradd -rs /bin/false node_exporter
 sudo vi /etc/systemd/system/node_exporter.service
 
-cat <<EOF >/etc/systemd/system/node_exporter.service
+sudo cat <<EOF >/etc/systemd/system/node_exporter.service
 [Unit]
 Description=Node Exporter
 After=network.target

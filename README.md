@@ -78,7 +78,7 @@ cat check_avalanchego_status.log
 ```
 
 
-## 4-) Check crontab -  Script will check avalanchego heath status every minutes and if NODE is not health it will alert via telegram and if NODE is health again it will send a recovery message 
+## 4-) Check crontab -  Script will check avalanchego heath status every minutes and if NODE is not healthy it will alert via telegram and if NODE is healthy again it will send a recovery message 
 
 
 ```bash

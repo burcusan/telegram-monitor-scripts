@@ -1,0 +1,10 @@
+/home/vagrant/scripts/check_avalanchego_status.sh: line 12: pidof: command not found
+ >>>> : Fri Oct  2 17:57:01 +03 2020
+ >>>> : TOKEN= 
+ >>>> : CHAT_ID= null
+ >>>> : HTTP_CODE= 200
+ >>>> : CURL_STATUS= 0
+ >>>> : FILE= /tmp/tmp_check_Avalanchego
+ >>>> : Avalanchego node is running!
+ >>>> : Fri Oct  2 17:57:01 +03 2020 - [INFO] Avalanchego node is healthy ! -  health.getLiveness result.healthy=true hostname=oracle-1
+ >>>> : true

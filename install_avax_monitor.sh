@@ -1,4 +1,9 @@
 #!/bin/bash 
+##
+#
+# INSTALLATION SCRIPT for "Avalanche node health status check & telegram alert script"
+#
+##
 
 SCRIPT_NAME="check_avalanchego_status.sh"
 SCRIPT_LOG="check_avalanchego_status.log"

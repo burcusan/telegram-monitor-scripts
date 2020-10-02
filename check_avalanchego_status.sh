@@ -63,6 +63,7 @@ HTTP_CODE=$(curl --write-out %{http_code} --silent --connect-timeout 5 --max-tim
 
 CURL_STATUS=$?
 
+echo " >>>> : $(date)"
 echo " >>>> : HTTP_CODE= $HTTP_CODE"
 echo " >>>> : CURL_STATUS= $CURL_STATUS"
 echo " >>>> : FILE= $FILE"

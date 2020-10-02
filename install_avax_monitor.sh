@@ -1,6 +1,7 @@
 #!/bin/bash 
 
 SCRIPT_NAME="check_avalanchego_status.sh"
+SCRIPT_LOG="check_avalanchego_status.log"
 SCRIPT_PATH=`pwd`
 
 # show usage 
@@ -41,7 +42,12 @@ fi
 # add TOKEN value to script
 sed -i "/^TOKEN=/c\TOKEN=$TOKEN" check_avalanchego_status.sh
 
-echo " >>> : Running $0 $@" 
+
+echo ""
+echo " >>> : Starting..."
+echo ""
+echo " >>>>>> : Running $0 $@" 
+echo ""
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram Token = $TOKEN"
 TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
 echo " >>>>>> : $TOKEN_LINE"
@@ -49,9 +55,18 @@ echo " >>>>>> : $TOKEN_LINE"
 
 # add crontab entry
 
-croncmd="$SCRIPT_PATH/$SCRIPT_NAME > $SCRIPT_PATH/$SCRIPT_NAME.log 2>&1"
+echo ""
+croncmd="$SCRIPT_PATH/$SCRIPT_NAME > $SCRIPT_PATH/$SCRIPT_LOG 2>&1"
 cronjob="* * * * * $croncmd"
 echo  " >>>>>> : Adding crontab :  $cronjob "
 ( crontab -l 2>/dev/null | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
 echo  " >>>>>> : Listing crontab : "
-crontab -l
+cronjob_list=`crontab -l`
+echo  " >>>>>> : $cronjob_list "
+
+echo ""
+echo " >>> : Ending..."
+echo ""
+
+
+

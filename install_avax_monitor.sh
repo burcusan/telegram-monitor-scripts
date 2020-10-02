@@ -54,8 +54,8 @@ echo ""
 echo " >>>>>> : Running $0 $@" 
 echo ""
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram Token = $TOKEN"
-TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
-echo " >>>>>> : $TOKEN_LINE"
+# TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
+# echo " >>>>>> : $TOKEN_LINE"
 
 
 # add crontab entry

@@ -14,10 +14,11 @@ if pidof -x "$script_name" -o $$ >/dev/null;then
    exit 1
 fi
 
+
 # Custom variables
 
-TOKEN=1303123599:AAEx-kIC9E1237Lb5TVeoZ8123ongZ3_c-g
-CHAT_ID=$(curl --silent https://api.telegram.org/bot$TOKEN/getUpdates | jq .message.chat.id)
+TOKEN=
+CHAT_ID=
 TELEGRAM_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 FILE=/tmp/tmp_check_Avalanchego
 SEND_ALERT_FLAG=true
@@ -48,10 +49,19 @@ function check_alert_count
 function telegram_send
 {
         if [ "$SEND_ALERT_FLAG" = true ] ; then
-                echo " >>> sendig $MESSAGE"
+                echo " >>>>: sendig $MESSAGE"
                 curl --silent --max-time 13 --retry 3 --retry-delay 3 --retry-max-time 13 -X POST $TELEGRAM_URL -d chat_id=$CHAT_ID -d text="$MESSAGE"
         fi
 }
+
+
+# Check test message
+if [ "$1" == "test" ] ; then
+        MESSAGE="$(date) - [TEST] [TEST] Avalanchego node TEST message !!!.."
+        echo " >>>> : $MESSAGE"
+        telegram_send
+        exit 0
+fi
 
 
 #Check Avalanchego health status with API call

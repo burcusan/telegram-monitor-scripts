@@ -10,7 +10,7 @@ Avalanchego telegram bash script
 
 # Git clone:
 
-git clone https://^Cthub.com/burcusan/scripts.git
+git clone https://github.com/burcusan/scripts.git
 cd scripts
 
 
@@ -25,12 +25,12 @@ cd scripts
 
 # Usage:
 
-./install_avax_monitor.sh -t <TELEGRAM TOKEN>
+./install_avax_monitor.sh -t <TELEGRAM TOKEN> -c <TELEGRAM CHAT ID>
 
 
 # Example:
 
-./install_avax_monitor.sh -t 1303123599:AAEx-kIC9E1237Lb5TVeoZ8123ongZ3_c-g
+./install_avax_monitor.sh -t 1303111199:AAEx-kIC9E7333333TVeoZ8UzSongZ3_c-g -c 1051111168
 
 
 ```
@@ -43,9 +43,11 @@ cd scripts
 
 ```bash
 
-./check_avalanchego_status.sh > check_avalanchego_status.log
 
-tail -f check_avalanchego_status.log
+
+
+./check_avalanchego_status.sh  > check_avalanchego_status.log
+cat check_avalanchego_status.log
 
 # Example Output :
 
@@ -57,6 +59,14 @@ tail -f check_avalanchego_status.log
  >>>> : Fri Oct  2 15:20:30 +03 2020 - [INFO] Avalanchego node is healthy ! -  health.getLiveness result.healthy=true hostname=oracle-1
  >>>> : true
 
+```
 
-``
+
+```bash
+./check_avalanchego_status.sh test
+ >>>> : Fri Oct  2 16:25:53 +03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!..
+ >>> sendig Fri Oct  2 16:25:53 +03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!..
+{"ok":true,"result":{"message_id":137,"from":{"id":1303345599,"is_bot":true,"first_name":"burcusan","username":"burcusanbot"},"chat":{"id":0000000,"first_name":"Burcusan","last_name":"BS","username":"burcusan","type":"private"},"date":100045154,"text":"Fri Oct  2 16:25:53  03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!.."}}[vagrant@oracle-1 scripts]$
+
+```
 

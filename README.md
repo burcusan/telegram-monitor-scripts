@@ -12,6 +12,8 @@ This telegram alert script checks avalanchego health status;
 
 ```bash
 
+# install  jq 
+sudo apt-get install  jq -y
 
 # Git clone:
 

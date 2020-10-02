@@ -2,6 +2,11 @@
 
 Avalanchego telegram bash script
 
+This telegram alert script checks avalanchego health status;
+
+- If NODE is not healthy then it will send and ALERT message
+- IF unhealty NODE is healty again then it will send ALERT RESOLVED message
+
 
 ## 1-) Download files from github
 
@@ -68,5 +73,18 @@ cat check_avalanchego_status.log
  >>> sendig Fri Oct  2 16:25:53 +03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!..
 {"ok":true,"result":....................................."date":100045154,"text":"Fri Oct  2 16:25:53  03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!.."}}
 
+```
+
+
+## 4-) Check crontab -  Script will check avalanchego heath status every minutes and if NODE is not health it will alert via telegram and if NODE is health again it will send a recovery message 
+
+
+```bash
+
+# list crontab
+crontab -l
+
+#sample output
+* * * * * /home/vagrant/scripts/check_avalanchego_status.sh > /home/vagrant/scripts/check_avalanchego_status.log 2>&1
 ```
 

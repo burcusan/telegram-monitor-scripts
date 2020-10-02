@@ -18,7 +18,7 @@ fi
 # Custom variables
 
 TOKEN=
-CHAT_ID=
+CHAT_ID=$(curl -s https://api.telegram.org/bot$TOKEN/getUpdates  | jq .result[0].message.chat.id)
 TELEGRAM_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 FILE=/tmp/tmp_check_Avalanchego
 SEND_ALERT_FLAG=true
@@ -74,6 +74,8 @@ HTTP_CODE=$(curl --write-out %{http_code} --silent --connect-timeout 5 --max-tim
 CURL_STATUS=$?
 
 echo " >>>> : $(date)"
+echo " >>>> : TOKEN= $TOKEN"
+echo " >>>> : CHAT_ID= $CHAT_ID"
 echo " >>>> : HTTP_CODE= $HTTP_CODE"
 echo " >>>> : CURL_STATUS= $CURL_STATUS"
 echo " >>>> : FILE= $FILE"

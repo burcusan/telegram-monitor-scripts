@@ -32,12 +32,12 @@ cd scripts
 
 # Usage:
 
-./install_avax_monitor.sh -t <TELEGRAM TOKEN> -c <TELEGRAM CHAT ID>
+./install_avax_monitor.sh -t <TELEGRAM TOKEN> 
 
 
 # Example:
 
-./install_avax_monitor.sh -t 1303111199:AAEx-kIC9E7333333TVeoZ8UzSongZ3_c-g -c 1051111168
+./install_avax_monitor.sh -t 1303111199:AAEx-kIC9E7333333TVeoZ8UzSongZ3_c-g 
 
 
 ```

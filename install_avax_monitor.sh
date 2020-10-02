@@ -6,9 +6,9 @@ SCRIPT_PATH=`pwd`
 
 # show usage 
 help() { 
-	echo -e "\nThis script must be run with ( -t TELEGRAM_TOKEN -c TELEGRAM_CHAT_ID ) parameter" 
-	echo -e "Usage: $0 -t WRITE_TELEGRAM_TOKEN_HERE -c WRITE_TELEGRAM_CHAT_ID_HERE  " 
-	echo -e "Sample: $0 -t 1303123599:AAEx-kIC9E1237Lb5TVeoZ8123ongZ3_c-g -c 1053853168 \n" 
+	echo -e "\nThis script must be run with ( -t TELEGRAM_TOKEN ) parameter" 
+	echo -e "Usage: $0 -t WRITE_TELEGRAM_TOKEN_HERE" 
+	echo -e "Sample: $0 -t 1303123599:AAEx-kIC9E1237Lb5TVeoZ8123ongZ3_c-g \n" 
 	} 
 
 # take options
@@ -16,9 +16,6 @@ while getopts "t:c:" opt; do
 	case $opt in
                 t)
                         TOKEN=${OPTARG}
-                        ;;
-                c)
-                        CHAT_ID+=("$OPTARG")
                         ;;
 		?|h)
 			help
@@ -40,16 +37,10 @@ if [ -z "${TOKEN}" ]; then
     exit 1
 fi
 
-if [ -z "${CHAT_ID}" ]; then
-    help
-    exit 1
-fi
-
 
 
 # add TOKEN value to script
 sed -i "/^TOKEN=/c\TOKEN=$TOKEN" check_avalanchego_status.sh
-sed -i "/^CHAT_ID=/c\CHAT_ID=$CHAT_ID" check_avalanchego_status.sh
 
 
 echo ""
@@ -60,9 +51,6 @@ echo ""
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram Token = $TOKEN"
 TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
 echo " >>>>>> : $TOKEN_LINE"
-echo " >>>>>> : Updated $SCRIPT_NAME with Telegram chat id = $CHAT_ID"
-CHAT_ID_LINE=`cat $SCRIPT_NAME | grep CHAT_ID=`
-echo " >>>>>> : $CHAT_ID_LINE"
 
 
 # add crontab entry

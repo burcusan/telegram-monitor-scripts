@@ -66,7 +66,7 @@ cat check_avalanchego_status.log
 ./check_avalanchego_status.sh test
  >>>> : Fri Oct  2 16:25:53 +03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!..
  >>> sendig Fri Oct  2 16:25:53 +03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!..
-{"ok":true,"result":{"message_id":137,"from":{"id":1303345599,"is_bot":true,"first_name":"burcusan","username":"burcusanbot"},"chat":{"id":0000000,"first_name":"Burcusan","last_name":"BS","username":"burcusan","type":"private"},"date":100045154,"text":"Fri Oct  2 16:25:53  03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!.."}}[vagrant@oracle-1 scripts]$
+{"ok":true,"result":....................................."date":100045154,"text":"Fri Oct  2 16:25:53  03 2020 - [TEST] [TEST] Avalanchego node TEST message !!!.."}}
 
 ```
 

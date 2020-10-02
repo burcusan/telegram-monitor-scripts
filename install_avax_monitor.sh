@@ -43,6 +43,8 @@ if [ -z "${TOKEN}" ]; then
 fi
 
 
+# install jq
+sudo apt-get install jq -y
 
 # add TOKEN value to script
 sed -i "/^TOKEN=/c\TOKEN=$TOKEN" check_avalanchego_status.sh

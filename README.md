@@ -17,8 +17,8 @@ sudo apt-get install  jq -y
 
 # Git clone:
 
-git clone https://github.com/burcusan/scripts.git
-cd scripts
+git clone https://github.com/burcusan/telegram-monitor-scripts.git
+cd telegram-monitor-scripts
 
 
 ```
@@ -86,6 +86,6 @@ cat check_avalanchego_status.log
 crontab -l
 
 #sample output
-* * * * * /home/vagrant/scripts/check_avalanchego_status.sh > /home/vagrant/scripts/check_avalanchego_status.log 2>&1
+* * * * * /home/vagrant/telegram-monitor-scripts/check_avalanchego_status.sh > /home/vagrant/telegram-monitor-scripts/check_avalanchego_status.log 2>&1
 ```
 

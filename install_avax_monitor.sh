@@ -41,7 +41,7 @@ esac
 done
 
 # install jq
-sudo apt-get install jq -y
+sudo apt-get install jq  sysstat -y
 
 
 # chek if TOKEN set
@@ -66,11 +66,11 @@ echo ""
 echo " >>>>>> : Running $0 $@" 
 echo ""
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram Token = $TOKEN"
-TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
-echo " >>>>>> : $TOKEN_LINE"
+# TOKEN_LINE=`cat $SCRIPT_NAME | grep TOKEN=`
+# echo " >>>>>> : $TOKEN_LINE"
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram chat id = $CHAT_ID"
-CHAT_ID_LINE=`cat $SCRIPT_NAME | grep CHAT_ID=`
-echo " >>>>>> : $CHAT_ID_LINE"
+#CHAT_ID_LINE=`cat $SCRIPT_NAME | grep CHAT_ID=`
+# echo " >>>>>> : $CHAT_ID_LINE"
 
 
 # add crontab entry

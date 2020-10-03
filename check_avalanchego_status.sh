@@ -49,6 +49,9 @@ function check_alert_count
           30) SEND_ALERT_FLAG=true ;;
           60) SEND_ALERT_FLAG=true ;;
           120) SEND_ALERT_FLAG=true ;;
+          360) SEND_ALERT_FLAG=true ;;
+          720) SEND_ALERT_FLAG=true ;;
+          1440) SEND_ALERT_FLAG=true ;;
           *)  SEND_ALERT_FLAG=false ;;
         esac
 }
@@ -72,6 +75,9 @@ function check_alert_count_cpu
           30) SEND_ALERT_FLAG_CPU=true ;;
           60) SEND_ALERT_FLAG_CPU=true ;;
           120) SEND_ALERT_FLAG_CPU=true ;;
+          360) SEND_ALERT_FLAG_CPU=true ;;
+          720) SEND_ALERT_FLAG_CPU=true ;;
+          1440) SEND_ALERT_FLAG_CPU=true ;;
           *)  SEND_ALERT_FLAG_CPU=false ;;
         esac
 }
@@ -175,7 +181,7 @@ fi
 CPU_LOAD=`sar -P ALL 1 5 | grep "Average.*all" | awk -F" " '{printf "%.2f\n", 100 -$NF}'`
 
 echo " >>>> : CPU_LOAD=$CPU_LOAD"
-echo " >>>> : CPU_LOAD_CRTITICAL=$CPU_LOAD_CRITICAL"
+echo " >>>> : CPU_LOAD_CRITICAL=$CPU_LOAD_CRITICAL"
 
 
 #if [[ $CPU_LOAD -gt $CPU_LOAD_CRITICAL ]];

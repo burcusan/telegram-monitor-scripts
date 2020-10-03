@@ -18,7 +18,8 @@ fi
 # Custom variables
 
 TOKEN=
-CHAT_ID=$(curl -s https://api.telegram.org/bot$TOKEN/getUpdates  | jq .result[0].message.chat.id)
+CHAT_ID=
+# CHAT_ID2=$(curl -s https://api.telegram.org/bot$TOKEN/getUpdates  | jq .result[0].message.chat.id)
 TELEGRAM_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 FILE=/tmp/tmp_check_Avalanchego
 SEND_ALERT_FLAG=true

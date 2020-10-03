@@ -17,18 +17,16 @@ fi
 
 # Custom variables
 
-TOKEN=1386678522:AAHw48uoaW-afV-oeWnEjTwIyQw9nH914s8
-CHAT_ID=1053853168
+TOKEN=
+CHAT_ID=
+CPU_LOAD_CRITICAL=40.00
 # CHAT_ID2=$(curl -s https://api.telegram.org/bot$TOKEN/getUpdates  | jq .result[0].message.chat.id)
 TELEGRAM_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 FILE=/tmp/tmp_check_Avalanchego
 SEND_ALERT_FLAG=true
 FILE_CPU=/tmp/tmp_check_Avalanchego_CPU
 SEND_ALERT_FLAG_CPU=true
-
 HOSTNAME=`hostname`
-CPU_LOAD_CRITICAL=40.00
-
 
 
 

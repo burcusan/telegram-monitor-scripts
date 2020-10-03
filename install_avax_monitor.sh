@@ -12,13 +12,13 @@ SCRIPT_PATH=`pwd`
 
 # show usage
 help() {
-        echo -e "\nThis script must be run with ( -t TELEGRAM_TOKEN -c TELEGRAM_CHAT_ID ) parameter"
-        echo -e "Usage: $0 -t WRITE_TELEGRAM_TOKEN_HERE -c WRITE_TELEGRAM_CHAT_ID_HERE  "
-        echo -e "Sample: $0 -t 130999999:AAEx-kIC9E1237Lb57777Z8123ongZ3_c-g -c 109999999168 \n"
+        echo -e "\nThis script must be run with ( -t TELEGRAM_TOKEN -c TELEGRAM_CHAT_ID -p LINUX_CPU_USAGE_THRESHOLD -i AVALANCHE_GO_IP ) parameter"
+        echo -e "Usage: $0 -t WRITE_TELEGRAM_TOKEN_HERE -c WRITE_TELEGRAM_CHAT_ID_HERE -p WRITE_CPU_USAGE_THRESHOLD_HERE -i WRITE_YOUR_AVALANCHE_GO_IP "
+        echo -e "Sample: $0 -t 130999999:AAEx-kIC9E1237Lb57777Z8123ongZ3_c-g -c 109999999168 -p 40.00 -i 127.0.0.1\n"
         }
 
 # take options
-while getopts "t:c:" opt; do
+while getopts "t:c:p:" opt; do
         case $opt in
                 t)
                         TOKEN=${OPTARG}
@@ -26,6 +26,13 @@ while getopts "t:c:" opt; do
                 c)
                         CHAT_ID+=("$OPTARG")
                         ;;
+                p)
+                        CPU_LOAD_CRITICAL+=("$OPTARG")
+                        ;;
+                i)
+                        AVALANCHEGO_IP+=("$OPTARG")
+                        ;;
+
                 ?|h)
                         help
                         ;;
@@ -55,9 +62,20 @@ if [ -z "${CHAT_ID}" ]; then
     exit 1
 fi
 
+if [ -z "${CPU_LOAD_CRITICAL}" ]; then
+    CPU_LOAD_CRITICAL=40.00 
+fi
+
+if [ -z "${AVALANCHEGO_IP}" ]; then
+    AVALANCHEGO_IP=127.0.0.1
+fi
+
+
 # add TOKEN value to script
 sed -i "/^TOKEN=/c\TOKEN=$TOKEN" check_avalanchego_status.sh
 sed -i "/^CHAT_ID=/c\CHAT_ID=$CHAT_ID" check_avalanchego_status.sh
+sed -i "/^CPU_LOAD_CRITICAL=/c\CPU_LOAD_CRITICAL=$CPU_LOAD_CRITICAL" check_avalanchego_status.sh
+sed -i "/^AVALANCHEGO_IP=/c\AVALANCHEGO_IP=$AVALANCHEGO_IP" check_avalanchego_status.sh
 
 
 echo ""
@@ -71,6 +89,8 @@ echo " >>>>>> : Updated $SCRIPT_NAME with Telegram Token = $TOKEN"
 echo " >>>>>> : Updated $SCRIPT_NAME with Telegram chat id = $CHAT_ID"
 #CHAT_ID_LINE=`cat $SCRIPT_NAME | grep CHAT_ID=`
 # echo " >>>>>> : $CHAT_ID_LINE"
+echo " >>>>>> : Updated $SCRIPT_NAME with Telegram cpu usage threshold = $CPU_LOAD_CRITICAL"
+echo " >>>>>> : Updated $SCRIPT_NAME with Avalnachego IP = $AVALANCHEGO_IP"
 
 
 # add crontab entry
@@ -87,6 +107,7 @@ echo  " >>>>>> : $cronjob_list "
 echo ""
 echo " >>> : Ending..."
 echo ""
+
 
 
 

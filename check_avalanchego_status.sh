@@ -20,6 +20,7 @@ fi
 TOKEN=
 CHAT_ID=
 CPU_LOAD_CRITICAL=40.00
+AVALANCHEGO_IP=127.0.0.1
 # CHAT_ID2=$(curl -s https://api.telegram.org/bot$TOKEN/getUpdates  | jq .result[0].message.chat.id)
 TELEGRAM_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 FILE=/tmp/tmp_check_Avalanchego
@@ -114,7 +115,7 @@ HTTP_CODE=$(curl --write-out %{http_code} --silent --connect-timeout 5 --max-tim
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"health.getLiveness"
-}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/health)
+}' -H 'content-type:application/json;' $AVALANCHEGO_IP:9650/ext/health)
 
 CURL_STATUS=$?
 
@@ -139,7 +140,7 @@ if [ "$CURL_STATUS" -eq 0 ]; then
                 "jsonrpc":"2.0",
                 "id"     :1,
                 "method" :"health.getLiveness"
-            }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/health | jq '.result.healthy')
+            }' -H 'content-type:application/json;' $AVALANCHEGO_IP:9650/ext/health | jq '.result.healthy')
             if [[ "$STATUS_HEALTHY" == "true" ]]; then
                 MESSAGE="$(date) - [INFO] Avalanchego node is healthy ! -  health.getLiveness result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
                 echo " >>>> : $MESSAGE"

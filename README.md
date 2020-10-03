@@ -7,6 +7,12 @@ This telegram alert script checks avalanchego health status;
 - If NODE is not healthy then it will send and ALERT message
 - IF unhealty NODE is healty again then it will send ALERT RESOLVED message
 
+This telegram alert script checks sar avg total cpu usages;
+
+- If NODE CPU usage is greater than %40 then it will send and ALERT message
+- Else if NODE CPU usage is normal again then it will send ALERT RESOLVED message
+
+
 
 ## 1-) Download files from github
 

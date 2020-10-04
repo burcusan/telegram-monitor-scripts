@@ -6,7 +6,7 @@
 ##
 
 # Fail immediately if another instance is already running
-
+export LC_ALL=C.UTF-8
 script_name=$(basename -- "$0")
 
 if pidof -x "$script_name" -o $$ >/dev/null;then

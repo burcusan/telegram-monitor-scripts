@@ -28,7 +28,7 @@ SEND_ALERT_FLAG=true
 FILE_CPU=/tmp/tmp_check_Avalanchego_CPU
 SEND_ALERT_FLAG_CPU=true
 HOSTNAME=`hostname`
-
+DATE=`date | cut -d' ' -f4 | cut -d: -f2`
 
 
 #Check alert count
@@ -114,6 +114,15 @@ if [ "$1" == "test" ] ; then
         telegram_send
         exit 0
 fi
+
+# NO PROBLEM Message  sent every hour
+if [[ $DATE == "00" ]]
+then
+MESSAGE="$(date) - [SYSTEM] [OK] Avalanchego node WORKING !!!.."
+        echo " >>>> : $MESSAGE"
+        telegram_send
+        exit 0
+    fi
 
 
 #Check Avalanchego health status with API call

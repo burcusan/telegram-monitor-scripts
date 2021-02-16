@@ -28,7 +28,7 @@ SEND_ALERT_FLAG=true
 FILE_CPU=/tmp/tmp_check_Avalanchego_CPU
 SEND_ALERT_FLAG_CPU=true
 HOSTNAME=`hostname`
-DATE=`date | cut -d' ' -f5 | cut -d: -f2`
+DATE=`date | cut -d' ' -f4 | cut -d: -f2`
 
 
 #Check alert count

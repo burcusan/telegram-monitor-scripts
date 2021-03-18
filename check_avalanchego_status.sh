@@ -28,7 +28,7 @@ SEND_ALERT_FLAG=true
 FILE_CPU=/tmp/tmp_check_Avalanchego_CPU
 SEND_ALERT_FLAG_CPU=true
 HOSTNAME=`hostname`
-DATE=`date | cut -d' ' -f4 | cut -d: -f2`
+ALIVE=`date +%M`
 
 
 #Check alert count
@@ -116,7 +116,7 @@ if [ "$1" == "test" ] ; then
 fi
 
 # NO PROBLEM Message  sent every hour
-if [[ $DATE == "00" ]]
+if [[ $ALIVE == "00" ]]
 then
 MESSAGE="$(date) - [SYSTEM] [OK] Avalanchego node WORKING !!!.."
         echo " >>>> : $MESSAGE"

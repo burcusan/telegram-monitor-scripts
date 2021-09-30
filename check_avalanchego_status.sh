@@ -148,19 +148,19 @@ if [ "$CURL_STATUS" -eq 0 ]; then
                 "method" :"health.health"
             }' -H 'content-type:application/json;' $AVALANCHEGO_IP:9650/ext/health | jq '.result.healthy')
             if [[ "$STATUS_HEALTHY" == "true" ]]; then
-                MESSAGE="$(date) - [INFO] Avalanchego node is healthy ! -  health.getLiveness result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
+                MESSAGE="$(date) - [INFO] Avalanchego node is healthy ! -  health.health result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
                 echo " >>>> : $MESSAGE"
                 echo " >>>> : $STATUS_HEALTHY"
                 if [ -f "$FILE" ]; then
                     echo "$FILE exists."
-                    MESSAGE="$(date) - [INFO] [ALERT RESOLVED] Avalanchego node is healthy again !!! -  health.getLiveness result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
+                    MESSAGE="$(date) - [INFO] [ALERT RESOLVED] Avalanchego node is healthy again !!! -  health.health result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
                     rm $FILE
                     SEND_ALERT_FLAG=true
                     telegram_send
                 fi
             else
                 check_alert_count
-                MESSAGE="$(date) - [CRTICAL] [ALERT FIRING] Avalanchego node is not healthy !!! #count:$COUNTER -  health.getLiveness result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
+                MESSAGE="$(date) - [CRTICAL] [ALERT FIRING] Avalanchego node is not healthy !!! #count:$COUNTER -  health.health result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"
                 echo " >>>> : $MESSAGE"
                 telegram_send
             fi

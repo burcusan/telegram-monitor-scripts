@@ -1,3 +1,27 @@
+# !!! IMPORTANT UPDATE for avalanchego V1.6.1 !!!
+
+With avalanchego V1.6.1 relase "Health API" is changed.
+The monitoring script is updated to work with avalanchego V1.6.1 and upward releases.  
+
+All "telegram-monitor-scripts" users have to reinstall the script or make necessary changes manually.
+
+1-) Automatic Change with reinstall : 
+
+https://medium.com/@burcusan/how-to-get-real-time-alerts-from-your-avalanchego-validator-node-f65f288c3e69
+
+2-) Manual Change : 
+
+# goto home directory
+cd
+
+# goto telegram-monitor-scripts directory
+cd telegram-monitor-scripts
+
+# make necessary change
+sed -i 's/health.getLiveness/health.health/g'  check_avalanchego_status.sh
+
+
+
 # How to Monitor Your AVAX Node via telegram
 
 Avalanchego telegram bash script

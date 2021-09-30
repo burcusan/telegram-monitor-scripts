@@ -47,7 +47,7 @@ This telegram alert script checks sar avg total cpu usages;
 sudo apt-get install  jq -y
 
 # Git clone:
-
+cd
 git clone https://github.com/burcusan/telegram-monitor-scripts.git
 cd telegram-monitor-scripts
 

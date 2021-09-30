@@ -3,7 +3,7 @@
 With avalanchego V1.6.1 release "Health API" is changed.
 The monitoring script is updated to work with avalanchego V1.6.1 and upward releases.  
 
-All "telegram-monitor-scripts" users have to reinstall the script or make necessary changes manually.
+All "telegram-monitor-scripts" users, who are using 1.6.1+, have to reinstall the script or make necessary changes manually.
 
 1-) Automatic Change with reinstall : 
 

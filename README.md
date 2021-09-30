@@ -11,10 +11,10 @@ https://medium.com/@burcusan/how-to-get-real-time-alerts-from-your-avalanchego-v
 
 2-) Manual Change : 
 ```bash
-# goto home directory
+# go to home directory
 cd
 
-# goto telegram-monitor-scripts directory
+# go to telegram-monitor-scripts directory
 cd telegram-monitor-scripts
 
 # make necessary change

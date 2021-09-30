@@ -36,14 +36,17 @@ cd telegram-monitor-scripts
 
 ```bash
 
+
 # Usage:
 
-./install_avax_monitor.sh -t <TELEGRAM TOKEN> -c <TELEGRAM CHAT ID>
+./install_avax_monitor.sh -t <YOUR TELEGRAM TOKEN> -c <YOUR TELEGRAM CHAT ID> -p <CPU THRESHOLD> 
+
 
 
 # Example:
 
-./install_avax_monitor.sh -t 1303111199:AAEx-kIC9E7333333TVeoZ8UzSongZ3_c-g -c 1051111168
+./install_avax_monitor.sh -t 13031231111111AAEx-kIC9E1237L111111111123ongZ3_c-g -c 10522222228 -p 50.00
+
 
 ```
 

@@ -10,7 +10,7 @@ All "telegram-monitor-scripts" users have to reinstall the script or make necess
 https://medium.com/@burcusan/how-to-get-real-time-alerts-from-your-avalanchego-validator-node-f65f288c3e69
 
 2-) Manual Change : 
-
+```bash
 # goto home directory
 cd
 
@@ -20,6 +20,7 @@ cd telegram-monitor-scripts
 # make necessary change
 sed -i 's/health.getLiveness/health.health/g'  check_avalanchego_status.sh
 
+```
 
 
 # How to Monitor Your AVAX Node via telegram

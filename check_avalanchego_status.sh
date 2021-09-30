@@ -120,7 +120,7 @@ fi
 HTTP_CODE=$(curl --write-out %{http_code} --silent --connect-timeout 5 --max-time 10 --output /dev/null -L -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
-    "method" :"health.getLiveness"
+    "method" :"health.health"
 }' -H 'content-type:application/json;' $AVALANCHEGO_IP:9650/ext/health)
 
 CURL_STATUS=$?
@@ -145,7 +145,7 @@ if [ "$CURL_STATUS" -eq 0 ]; then
             STATUS_HEALTHY=$(curl --silent  -X POST --data '{
                 "jsonrpc":"2.0",
                 "id"     :1,
-                "method" :"health.getLiveness"
+                "method" :"health.health"
             }' -H 'content-type:application/json;' $AVALANCHEGO_IP:9650/ext/health | jq '.result.healthy')
             if [[ "$STATUS_HEALTHY" == "true" ]]; then
                 MESSAGE="$(date) - [INFO] Avalanchego node is healthy ! -  health.getLiveness result.healthy=$STATUS_HEALTHY hostname=$HOSTNAME"

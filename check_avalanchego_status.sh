@@ -174,6 +174,14 @@ else
 
 fi
 
+NODEID=$(curl -s -X POST --data '{ "jsonrpc":"2.0", "id" :1, "method" :"info.getNodeID" }' -H 'content-type:application/json' $AVALANCHEGO_IP:9650/ext/info | jq ".result.nodeID")
+found=$(curl -s -X POST -H "Content-Type: application/json" --data '{ "jsonrpc":"2.0", "id" :1, "method" :"platform.getCurrentValidators", "params" :{} }' $AVALANCHEGO_IP:9650/ext/P | jq . | grep $NODEID)
+
+if [ -z "$found" ]; then
+    MESSAGE="$(date) - [CRTICAL] [ALERT FIRING] Avalanchego node is not in Active Set! hostname=$(hostname)"
+    echo " >>>> : $MESSAGE"
+    telegram_send
+fi
 
 # check cpu usage
 
